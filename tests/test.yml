@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    - role: upstream-nginx
+      upstream_nginx_service_manage: false

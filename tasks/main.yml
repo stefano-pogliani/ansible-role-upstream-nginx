@@ -1,0 +1,22 @@
+---
+- name: Configure upstream repo for supported platforms
+  include: '{{ item }}'
+  with_first_found:
+    - files:
+        - 'tasks/{{ ansible_distribution }}/{{ ansible_distribution_major_version }}.yml'
+        - 'tasks/{{ ansible_distribution }}.yml'
+      skip: true
+      
+
+- name: Install NGINX package
+  package:
+    name: '{{ upstream_nginx_package }}'
+    state: present
+
+
+- name: Configure NGINX service
+  service:
+    name: '{{ upstream_nginx_service }}'
+    enabled: '{{ upstream_nginx_service_enabled }}'
+    state: '{{ upstream_nginx_service_state }}'
+  when: upstream_nginx_service_manage
