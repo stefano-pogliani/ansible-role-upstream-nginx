@@ -1,0 +1,9 @@
+---
+- name: Configuring NGINX official repo
+  yum_repository:
+    baseurl: 'https://nginx.org/packages/centos/$releasever/$basearch/'
+    description: 'nginx official repo'
+    enabled: yes
+    gpgcheck: no
+    name: nginx
+    state: present

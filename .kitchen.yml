@@ -5,7 +5,16 @@ driver:
 
 
 platforms:
+  - name: centos-7
   - name: fedora-26
+  - name: debian-9
+    provisioner:
+      require_ansible_repo: false
+      require_pip: true
+  - name: debian-8
+    provisioner:
+      require_ansible_repo: false
+      require_pip: true
 
 
 provisioner:

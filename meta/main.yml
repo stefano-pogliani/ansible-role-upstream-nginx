@@ -3,20 +3,19 @@ galaxy_info:
   description: Install NGINX using the upstream repos.
   license: MIT
 
-  min_ansible_version: 1.2
+  # TODO(stefano): Need to move to 2.4 to use include_tasks.
+  min_ansible_version: 2.1
 
-  # Platforms is a list of platforms, and each platform has a name and a list of versions.
-  # platforms:
-  # - name: Fedora
-  #   versions:
-  #   - all
-  #   - 25
-  # - name: SomePlatform
-  #   versions:
-  #   - all
-  #   - 1.0
-  #   - 7
-  #   - 99.99
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: CentOS
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
 
   galaxy_tags:
     # List tags for your role here, one per line. A tag is a keyword that describes

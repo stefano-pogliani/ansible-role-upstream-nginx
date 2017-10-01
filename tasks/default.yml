@@ -1,0 +1,4 @@
+---
+- name: Skip repo configuration
+  debug:
+    msg: 'Official upstream not yet available'

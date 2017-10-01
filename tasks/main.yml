@@ -1,12 +1,14 @@
 ---
-- name: Configure upstream repo for supported platforms
+# TODO(stefano): Use include_tasks as soon as possible.
+#  - include_tasks is new in 2.4 and not all platforms have it.
+- name: 'Configure upstream repo for supported platforms'
   include: '{{ item }}'
   with_first_found:
     - files:
         - 'tasks/{{ ansible_distribution }}/{{ ansible_distribution_major_version }}.yml'
         - 'tasks/{{ ansible_distribution }}.yml'
-      skip: true
-      
+        - 'tasks/default.yml'
+
 
 - name: Install NGINX package
   package:
