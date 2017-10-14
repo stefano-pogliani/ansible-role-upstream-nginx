@@ -11,7 +11,6 @@ Nothing.
 
 Role Variables
 --------------
-
 | Variable | Description | Default |
 | -------- | ----------- | ------- |
 | `upstream_nginx_package` | The name of the package to install | `'nginx'` |
