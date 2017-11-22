@@ -1,6 +1,16 @@
 ---
 - hosts: localhost
   remote_user: root
+  tasks:
+    - name: Debian | Install getcap
+      package:
+        name: libcap2-bin
+        state: present
+      when: ansible_os_family == "Debian"
+
+- hosts: localhost
+  remote_user: root
   roles:
     - role: upstream-nginx
       upstream_nginx_service_manage: false
+      upstream_nginx_set_capabilities: true

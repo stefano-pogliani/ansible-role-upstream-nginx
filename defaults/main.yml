@@ -5,3 +5,5 @@ upstream_nginx_service: 'nginx'
 upstream_nginx_service_enabled: 'yes'
 upstream_nginx_service_manage: true
 upstream_nginx_service_state: 'started'
+
+upstream_nginx_set_capabilities: false

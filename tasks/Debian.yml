@@ -1,15 +1,15 @@
 ---
-- name: Install APT HTTPS transport
+- name: NGINX | Repo | Install APT HTTPS transport
   package:
     name: 'apt-transport-https'
     state: present
 
-- name: Import repo key
+- name: NGINX | Repo | Import repo key
   apt_key:
     keyserver: 'keyserver.ubuntu.com'
     id: 'ABF5BD827BD9BF62'
 
-- name: Configuring NGINX official repo
+- name: NGINX | Repo | Configuring official repo
   apt_repository:
     filename: nginx
     repo: 'deb https://nginx.org/packages/debian/ {{ ansible_distribution_release }} nginx'

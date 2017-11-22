@@ -14,10 +14,11 @@ Role Variables
 | Variable | Description | Default |
 | -------- | ----------- | ------- |
 | `upstream_nginx_package` | The name of the package to install | `'nginx'` |
-| `upstream_nginx_service` | The name of the NGINX service | `'nginx'` |
 | `upstream_nginx_service_enabled` | Should the service be enabled? | `'yes'` |
 | `upstream_nginx_service_manage` | Should the service be managed? | `true` |
 | `upstream_nginx_service_state` | Should the service be running? | `'started'` |
+| `upstream_nginx_service` | The name of the NGINX service | `'nginx'` |
+| `upstream_nginx_set_capabilities` | Allow nginx to bind to privileged ports without root | `false` |
 
 
 Dependencies

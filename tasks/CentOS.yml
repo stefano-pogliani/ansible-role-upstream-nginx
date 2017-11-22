@@ -1,5 +1,5 @@
 ---
-- name: Configuring NGINX official repo
+- name: NGINX | Repo | Configuring official repo
   yum_repository:
     baseurl: 'https://nginx.org/packages/centos/$releasever/$basearch/'
     description: 'nginx official repo'

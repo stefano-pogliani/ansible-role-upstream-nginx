@@ -1,4 +1,4 @@
 ---
-- name: Skip repo configuration
+- name: NGINX | Repo | Skip configuration
   debug:
     msg: 'Official upstream not yet available'

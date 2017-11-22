@@ -1,7 +1,7 @@
 ---
 # TODO(stefano): Use include_tasks as soon as possible.
 #  - include_tasks is new in 2.4 and not all platforms have it.
-- name: 'Configure upstream repo for supported platforms'
+- name: NGINX | Configure upstream repo for supported platforms
   include: '{{ item }}'
   with_first_found:
     - files:
@@ -10,13 +10,21 @@
         - 'tasks/default.yml'
 
 
-- name: Install NGINX package
+- name: NGINX | Install package
   package:
     name: '{{ upstream_nginx_package }}'
     state: present
 
 
-- name: Configure NGINX service
+- name: NGINX | Set capabilities
+  capabilities:
+    capability: 'cap_net_bind_service+ep'
+    path: '/usr/sbin/nginx'
+    state: present
+  when: upstream_nginx_set_capabilities
+
+
+- name: NGINX | Configure service
   service:
     name: '{{ upstream_nginx_service }}'
     enabled: '{{ upstream_nginx_service_enabled }}'
